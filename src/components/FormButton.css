@@ -1,0 +1,47 @@
+.formButton {
+	width: 22.5vw;
+	height: 12.5vh;
+	background-color: white;
+	border-radius: 5px;
+	border: 2px solid #eeeeee;
+	position: absolute;
+  top: 39.5vh;
+  left: 50%;
+  transform: translate(-50%, -44.5%);
+  cursor: pointer;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.formButton:hover {
+	background-color: #eeeeee;
+	cursor: pointer;
+}
+
+.personIcon {
+	float: left;
+	width: 40px;
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-right: 40px;
+}
+
+.buttonText {
+	font-weight: 500;
+	text-align: left;
+	width: 300px;
+}
+
+.description {
+	color: #565656;
+	margin-top: 0px;
+}
+
+.title {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	font-size: 19px;
+}
+
