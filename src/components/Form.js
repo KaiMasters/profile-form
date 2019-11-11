@@ -7,7 +7,6 @@ import MultiSubmit from './MultiSubmit';
 import logo from '../assets/logo.jpg';
 import axios from 'axios';
 
-
 const filter = interests.interests.map(val => {
 	return {value: val, label: val}
 })
@@ -116,15 +115,19 @@ class Form extends React.Component	{
 		        <div style={{height: "20px"}}></div>
 		        <label>Interests</label>
 		        <MultiSubmit interests={filter} callbackFromParent={(e) => this.myCallback(e)}/>
-	        </div>
-	        <div className="submit" onClick={() => this.toggle()}>
-	        	Submit
-	        </div>
-	        <div className={this.state.show ? "terminal" : "noTerminal"}>
-	        	{[...Array(20)].map(val => {
-	        		return <div>{this.generate()}</div>
-	        	})}
-	        </div>
+		        </div>
+		        <div className="submit">
+		        	Submit
+		        </div>
+		        <div className={this.state.show ? "terminal" : "noTerminal"}>
+		        	{[...Array(20)].map(val => {
+		        		return <div>{this.generate()}</div>
+		        	})}
+		        </div>
+		        <div className="terminalButton2" onClick={() => this.toggle()}>
+		        	Send
+		        	Data 
+		        </div>
 				</div>
 			</div>
 		)

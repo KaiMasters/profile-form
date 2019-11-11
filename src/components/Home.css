@@ -1,0 +1,41 @@
+.cycle {
+	width: 40px;
+	height: 40px;
+	background-color: #febc69;
+	text-align: center;
+	border-radius: 5px;
+	position: absolute;
+	left: 7vw;
+	top: 70vh;
+	cursor: pointer;
+}
+
+.terminalButton {
+	width: 40px;
+	height: 40px;
+	background-color: black;
+	text-align: center;
+	border-radius: 5px;
+	position: absolute;
+	right: 7vw;
+	top: 70vh;
+	color: #00d700;
+}
+
+.terminalPopup {
+	width: 50%;
+	height: 400px;
+	background-color: black;
+	color: #00d700;
+	font-size: 13px;
+	border-radius: 5px;
+	position: absolute;
+	top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+.noTerminalPopup {
+	display: none;
+}
