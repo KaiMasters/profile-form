@@ -2,6 +2,7 @@ import React from "react";
 import './Form.css';
 import interests from '../interests';
 import occupations from '../occupations';
+import products from '../products';
 import MultiSubmit from './MultiSubmit';
 import logo from '../assets/logo.jpg';
 import axios from 'axios';
@@ -56,17 +57,26 @@ class Form extends React.Component	{
   	return vals
   }
 
+  pickProducts() {
+  	const prod = products.products
+  	let num = [...Array(prod.length).keys()]
+  	num = this.shuffle(num)
+  	const vals = [...Array(30)].map(val => {
+  		return prod[num.pop()]._id
+  	})
+  	return vals
+  }
+
   pickOccupation() {
   	const oc = occupations.occupations
 		return oc[Math.floor(Math.random() * oc.length)]
   }
 
-  sendData(occ, inter){
-  	console.log(inter)
-
-		axios.post('http://machine-learning-kpmg.herokuapp.com/profile', {
+  sendData(occ, inter, prod){
+		axios.post('https://machine-learning-kpmg.herokuapp.com/profile', {
 	    	occupation: occ,
-    		interests: inter
+    		interests: inter,
+    		purchases: prod
 	  })
 	  .then(function (response) {
 	    console.log(response);
@@ -76,10 +86,15 @@ class Form extends React.Component	{
 	  });
   }
   generate() {
-  	const occupation = this.pickOccupation()
-  	const interests = this.pickInterests()
-  	this.sendData(occupation, interests)
-  	return 'Sending Account: ' + this.randID() + ', Occupation: ' + occupation + ', Interests: ' + interests + '...\n'
+  	if(this.state.show){
+	  	const occupation = this.pickOccupation()
+	  	const interests = this.pickInterests()
+	  	const products = this.pickProducts()
+
+	  	this.sendData(occupation, interests, products)
+	  	return 'Sending Account: ' + this.randID() + ', Occupation: ' + occupation + ', Interests: ' + interests + '...\n'
+	}
+	else return
   }
 
   toggle() {
